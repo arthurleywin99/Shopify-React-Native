@@ -1,44 +1,48 @@
 import React from 'react'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { Logo } from '../assets/images'
-import { ArrowRightIcon } from '../assets/icons'
-import { NunitoSansText, RalewayText } from '../components'
+import { Button, NunitoSansText, RalewayText } from '../components'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { useNavigation } from '@react-navigation/native'
+import { AppRoutes } from '../enums'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStackParamList } from '../types'
 import { Colors } from '../constants'
 
 const StartScreen = () => {
-  function handlePressLetGetStarted() {}
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>()
+
+  function handlePressLetGetStarted() {
+    navigation.navigate(AppRoutes.SIGNUP_SCREEN)
+  }
 
   function handlePressAlreadyHaveAccount() {}
 
   return (
-    <SafeAreaView style={[styles.container]}>
+    <SafeAreaView style={styles.container}>
       <View />
-      <View style={[styles.centerWrapper]}>
-        <View style={[styles.shadow]}>
+      <View style={styles.centerWrapper}>
+        <View style={styles.shadow}>
           <Logo />
         </View>
-        <RalewayText style={[styles.appTitle]}>Shoppe</RalewayText>
-        <NunitoSansText style={[styles.appDescription]}>
+        <RalewayText style={styles.appTitle}>Shoppe</RalewayText>
+        <NunitoSansText style={styles.appDescription}>
           Beautiful eCommerce UI Kit{'\n'}for your online store
         </NunitoSansText>
       </View>
-      <View style={[styles.centerWrapper]}>
-        <TouchableOpacity
-          style={[styles.button, styles.primaryButton]}
-          onPress={handlePressLetGetStarted}>
-          <NunitoSansText style={[styles.primaryText]}>
-            Let's get started
-          </NunitoSansText>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, styles.secondaryButton]}
-          onPress={handlePressAlreadyHaveAccount}>
-          <NunitoSansText style={[styles.secondaryText]}>
-            I already have an account
-          </NunitoSansText>
-          <ArrowRightIcon />
-        </TouchableOpacity>
+      <View style={styles.centerWrapper}>
+        <Button
+          type="primary"
+          title="Let's get started"
+          onPress={handlePressLetGetStarted}
+        />
+        <Button
+          type="secondary"
+          title="I already have an account"
+          onPress={handlePressAlreadyHaveAccount}
+          suffixIcon
+        />
       </View>
     </SafeAreaView>
   )
@@ -50,6 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
+    backgroundColor: Colors.bgPrimary,
   },
   centerWrapper: {
     alignItems: 'center',
@@ -72,32 +77,6 @@ const styles = StyleSheet.create({
     fontWeight: 300,
     fontSize: 19,
     textAlign: 'center',
-  },
-  button: {
-    width: '100%',
-    borderRadius: 16,
-    alignItems: 'center',
-  },
-  primaryButton: {
-    backgroundColor: Colors.backgroundPrimary,
-    paddingVertical: 16,
-  },
-  secondaryButton: {
-    color: Colors.textSecondary,
-    paddingVertical: 16,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    gap: 16,
-  },
-  primaryText: {
-    color: Colors.textPrimary,
-    fontSize: 22,
-    fontWeight: 300,
-  },
-  secondaryText: {
-    color: Colors.textSecondary,
-    fontSize: 16,
-    fontWeight: 300,
   },
 })
 
