@@ -1,8 +1,8 @@
+import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import React from 'react'
 import { AppRoutes } from './app/enums'
-import { StartScreen } from './app/screens'
+import { SignupScreen, StartScreen } from './app/screens'
 
 const Stack = createNativeStackNavigator()
 
@@ -14,6 +14,7 @@ function RootStack() {
         headerShown: false,
       }}>
       <Stack.Screen name={AppRoutes.START_SCREEN} component={StartScreen} />
+      <Stack.Screen name={AppRoutes.SIGNUP_SCREEN} component={SignupScreen} />
     </Stack.Navigator>
   )
 }
