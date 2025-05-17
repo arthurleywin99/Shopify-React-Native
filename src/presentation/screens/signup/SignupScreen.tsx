@@ -9,30 +9,19 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native'
-import React, { useState } from 'react'
-import { Button, PhoneInput, RalewayText, TextInput } from '../components'
-import { BubbleIcon1, BubbleIcon2 } from '../assets/icons'
-import { Colors } from '../constants'
-import { launchImageLibrary } from 'react-native-image-picker'
+import React from 'react'
+import {
+  Button,
+  PhoneInput,
+  RalewayText,
+  TextInput,
+} from '@/presentation/components'
+import { BubbleIcon1, BubbleIcon2 } from '@/assets/icons'
+import { useUserSignupController } from '@/presentation/controllers'
 
 const SignupScreen = () => {
-  const [photoUri, setPhotoUri] = useState<string | null>(null)
-
-  async function handlePressUploadPhoto() {
-    const result = await launchImageLibrary({
-      mediaType: 'photo',
-      selectionLimit: 1,
-      quality: 1,
-    })
-
-    if (result.assets && result.assets.length > 0) {
-      setPhotoUri(result.assets[0].uri || null)
-    }
-  }
-
-  function handlePressDone() {}
-
-  function handlePressCancel() {}
+  const { photoUri, onPressUploadPhoto, onPressDone, onPressCancel } =
+    useUserSignupController()
 
   return (
     <TouchableNativeFeedback onPress={Keyboard.dismiss}>
@@ -55,13 +44,13 @@ const SignupScreen = () => {
           <View style={styles.formContainer}>
             <TouchableOpacity
               style={styles.uploadPhotoIcon}
-              onPress={handlePressUploadPhoto}>
+              onPress={onPressUploadPhoto}>
               <Image
                 style={styles.uploadPhotoIcon}
                 source={
                   photoUri
                     ? { uri: photoUri }
-                    : require('../assets/icons/UploadPhotoIcon.png')
+                    : require('@/assets/icons/UploadPhotoIcon.png')
                 }
               />
             </TouchableOpacity>
@@ -76,12 +65,8 @@ const SignupScreen = () => {
             </View>
           </View>
           <View style={styles.centerWrapper}>
-            <Button type="primary" title="Done" onPress={handlePressDone} />
-            <Button
-              type="secondary"
-              title="Cancel"
-              onPress={handlePressCancel}
-            />
+            <Button type="primary" title="Done" onPress={onPressDone} />
+            <Button type="secondary" title="Cancel" onPress={onPressCancel} />
           </View>
         </ScrollView>
       </KeyboardAvoidingView>

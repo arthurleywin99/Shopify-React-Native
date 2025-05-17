@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { AppRoutes } from './app/enums'
-import { SignupScreen, StartScreen } from './app/screens'
+import { AppRoutes } from '@/core/enums'
+import { SignupScreen, StartScreen } from '@/presentation/screens'
 
 const Stack = createNativeStackNavigator()
 

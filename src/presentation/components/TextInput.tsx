@@ -1,11 +1,9 @@
 import React from 'react'
 import { StyleSheet, TextInput as RNTextInput } from 'react-native'
-import { Colors } from '../constants'
+import { Colors } from '@/config/constants'
 
 const TextInput = (props: RNTextInput['props']) => {
-  return (
-    <RNTextInput {...props} style={[styles.container, props.style]} />
-  )
+  return <RNTextInput {...props} style={[styles.container, props.style]} />
 }
 
 const styles = StyleSheet.create({
@@ -17,8 +15,8 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderRadius: 60,
     fontSize: 14,
-    fontWeight: '500'
-  }
+    fontWeight: '500',
+  },
 })
 
 export default TextInput

@@ -1,4 +1,4 @@
-import { AppRoutes } from '../enums'
+import { AppRoutes } from '@/core/enums'
 
 export type RootStackParamList = {
   [AppRoutes.START_SCREEN]: undefined
