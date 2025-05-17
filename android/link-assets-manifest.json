@@ -2,147 +2,147 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-Black.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-Black.ttf",
       "sha1": "80b6bf68758a744ddd7eb35d639d969d137c373a"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-BlackItalic.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-BlackItalic.ttf",
       "sha1": "25ebe667e9b361083fe3f7709baae9d2ad5de075"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-Bold.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-Bold.ttf",
       "sha1": "9b2b62b8a905d5e4175da97de81ba7523cf6812f"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-BoldItalic.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-BoldItalic.ttf",
       "sha1": "3b6efc73fa92823faebe989c70030b58d9bc8d65"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-ExtraBlack-Italic.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-ExtraBlack-Italic.ttf",
       "sha1": "4ca2306307ea23fa71913fb7e06ab993a8cdf409"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-ExtraBlack.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-ExtraBlack.ttf",
       "sha1": "60d6589543618d9e3c57fd278e06fc850ad0bfcf"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-ExtraBold.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-ExtraBold.ttf",
       "sha1": "7653ea312dddb7f460afad2a6fd09c73fed64e53"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-ExtraBoldItalic.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-ExtraBoldItalic.ttf",
       "sha1": "152c37a8fb3e2447df785f63ffb4483639be732f"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-ExtraLight.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-ExtraLight.ttf",
       "sha1": "c5521512296770210af4087d506434f106214b9d"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-ExtraLightItalic.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-ExtraLightItalic.ttf",
       "sha1": "f8c0b4b8ed3f4ac04e720263044d032d3d493cda"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-Light.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-Light.ttf",
       "sha1": "67212ab57d86adc2fb34bbbc18ffc55dfda9ad0c"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-LightItalic.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-LightItalic.ttf",
       "sha1": "7cb1bfd9f2e0b6ff6e611ea51fdf4407198a6369"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-Medium.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-Medium.ttf",
       "sha1": "66ba853dc82538101e4e7bbee7e23f988d8c2c13"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-MediumItalic.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-MediumItalic.ttf",
       "sha1": "f767a6ff75bbd4d952d7bf42561f9bc5a2cd90a3"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-Regular.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-Regular.ttf",
       "sha1": "774c19b3b02b5875681babb64c74899b03e96e1b"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-RegularItalic.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-RegularItalic.ttf",
       "sha1": "53720f0f139404dcddbbbe5591dc1170a16bfe7c"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-SemiBold.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-SemiBold.ttf",
       "sha1": "97f2fbdafb5a7c32b94a63646939da9f44332d50"
     },
     {
-      "path": "app/assets/fonts/NunitoSans/NunitoSans-SemiBoldItalic.ttf",
+      "path": "src/assets/fonts/NunitoSans/NunitoSans-SemiBoldItalic.ttf",
       "sha1": "c0bda54c4983c7e9ad0d7625633513fc943097a4"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-Black.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-Black.ttf",
       "sha1": "5e210618f2aebce32da0ca066eb98b0a13da12c8"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-BlackItalic.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-BlackItalic.ttf",
       "sha1": "b9b942a24c0a6fac17b36b2a19b0acff47791224"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-Bold.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-Bold.ttf",
       "sha1": "d95ffb535f26ea952d007064407cafc923806328"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-BoldItalic.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-BoldItalic.ttf",
       "sha1": "cf22a9525245715d9115240ebb1f01f65e7bf31f"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-ExtraBold.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-ExtraBold.ttf",
       "sha1": "de6a21d941d3a9f689ddec053e0b2c51c117464e"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-ExtraBoldItalic.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-ExtraBoldItalic.ttf",
       "sha1": "d2967f9bc52f3664ba3abb3a7a6a1d329dea56c1"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-ExtraLight.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-ExtraLight.ttf",
       "sha1": "6175d6902664171d047de8c61de08afe835d6792"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-ExtraLightItalic.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-ExtraLightItalic.ttf",
       "sha1": "7a8db653e5ae3620c58d0a0d68e1118b83e39b33"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-Light.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-Light.ttf",
       "sha1": "a4537793a58af3ef37c5be094d31598667ae2521"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-LightItalic.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-LightItalic.ttf",
       "sha1": "1ab2987e4cfa9e4ab6105870b1511b147d03ce35"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-Medium.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-Medium.ttf",
       "sha1": "8259da21f8864b2a2a3f80c9a0bf918290f8796a"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-MediumItalic.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-MediumItalic.ttf",
       "sha1": "38acd1b1fb3ba148487d59039a830e4581e9fb5b"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-Regular.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-Regular.ttf",
       "sha1": "c7a8af9895615a7132cbb94047a2de3658c06c58"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-RegularItalic.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-RegularItalic.ttf",
       "sha1": "4f8a4a51000fb6ca97f393835f4be3a98cdf247b"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-SemiBold.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-SemiBold.ttf",
       "sha1": "898a69b3953b6f8b94edec4db3422ba78fe00a11"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-SemiBoldItalic.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-SemiBoldItalic.ttf",
       "sha1": "1a7a61ad1715ec621e653b4d74cbdbb3574beaba"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-Thin.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-Thin.ttf",
       "sha1": "b9efeaca02d2997881cb1aa0e8f1a1497c007e16"
     },
     {
-      "path": "app/assets/fonts/Raleway/Raleway-ThinItalic.ttf",
+      "path": "src/assets/fonts/Raleway/Raleway-ThinItalic.ttf",
       "sha1": "7fc8f8c32d1d6590865d596770a2fdf1fafb2a64"
     }
   ]

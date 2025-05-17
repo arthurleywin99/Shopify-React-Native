@@ -1,13 +1,13 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Logo } from '../assets/images'
-import { Button, NunitoSansText, RalewayText } from '../components'
+import { Logo } from '@/assets/images'
+import { Button, NunitoSansText, RalewayText } from '@/presentation/components'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
-import { AppRoutes } from '../enums'
+import { AppRoutes } from '@/core/enums'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { RootStackParamList } from '../types'
-import { Colors } from '../constants'
+import { RootStackParamList } from '@/core/types'
+import { Colors } from '@/config/constants'
 
 const StartScreen = () => {
   const navigation =

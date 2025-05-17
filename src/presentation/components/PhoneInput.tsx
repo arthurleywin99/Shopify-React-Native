@@ -8,10 +8,10 @@ import {
   Modal,
   useColorScheme,
 } from 'react-native'
-import { Colors, countryCodes } from '../constants'
+import { Colors, countryCodes } from '@/config/constants'
 import { Picker } from '@react-native-picker/picker'
 import { ItemValue } from '@react-native-picker/picker/typings/Picker'
-import { ArrowDownIcon } from '../assets/icons'
+import { ArrowDownIcon } from '@/assets/icons'
 
 type Props = {
   placeholder?: string

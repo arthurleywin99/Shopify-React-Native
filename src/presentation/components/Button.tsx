@@ -1,9 +1,9 @@
 import React from 'react'
-import { TouchableOpacity, StyleSheet, StyleProp } from 'react-native'
-import { type NoneToVoidFunction } from '../types'
+import { TouchableOpacity, StyleSheet } from 'react-native'
+import { type NoneToVoidFunction } from '@/core/types'
 import NunitoSansText from './NunitoSansText'
-import { Colors } from '../constants'
-import { ArrowRightIcon } from '../assets/icons'
+import { Colors } from '@/config/constants'
+import { ArrowRightIcon } from '@/assets/icons'
 
 type Props = {
   type?: 'primary' | 'secondary' | 'warning' | 'error'
