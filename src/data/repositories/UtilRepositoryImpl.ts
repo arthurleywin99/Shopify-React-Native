@@ -17,7 +17,7 @@ export class UtilRepositoryImpl implements IUtilRepository {
     return this.instance
   }
 
-  async uploadImage(image: Asset): Promise<string | null> {
+  async uploadImage(image: Asset): Promise<string> {
     try {
       const { data, status } = await this.utilRemoteDataSource.uploadImage(
         image,
@@ -27,16 +27,9 @@ export class UtilRepositoryImpl implements IUtilRepository {
         return data
       }
 
-      throw new Error(`Unexpected status code: ${status}`)
+      throw new Error('Unexpected response')
     } catch (error) {
-      const message = getError(error)
-
-      Toast.show({
-        type: 'error',
-        text1: 'Upload image error',
-        text2: message,
-      })
+      throw error
     }
-    return null
   }
 }
