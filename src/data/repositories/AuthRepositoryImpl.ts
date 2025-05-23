@@ -1,23 +1,39 @@
 import { IAuthRepository } from '@/domains/repositories'
-import { HttpClient } from '../api/HttpClient'
-import { UserDTO } from '../models/UserDTO'
 import { User } from '@/domains/entities'
+import { AuthRemoteDataSource } from '../datasources'
+import { Asset } from 'react-native-image-picker'
+import { HttpStatusCode } from 'axios'
 
 export class AuthRepositoryImpl implements IAuthRepository {
-  async register({
-    email,
-    password,
-    phoneNumber,
-  }: {
+  private static instance: AuthRepositoryImpl
+
+  constructor(private readonly authRemoteDataSource: AuthRemoteDataSource) {}
+
+  public static getInstance(authRemoteDataSource: AuthRemoteDataSource) {
+    if (!AuthRepositoryImpl.instance) {
+      AuthRepositoryImpl.instance = new AuthRepositoryImpl(authRemoteDataSource)
+    }
+    return AuthRepositoryImpl.instance
+  }
+
+  async register(data: {
     email: string
     password: string
     phoneNumber: string
+    avatar: Asset | null
   }): Promise<User> {
-    const res = await HttpClient.post<UserDTO>('/register', {
-      email,
-      password,
-      phoneNumber,
-    })
-    return new User(res.id, res.email, res.phoneNumber)
+    try {
+      const response = await this.authRemoteDataSource.register(data)
+
+      if (response.status === HttpStatusCode.Ok) {
+        const { id, email, phoneNumber, avatar } = response.data
+
+        return new User(id, email, phoneNumber, avatar)
+      }
+
+      throw new Error('Unexpected response')
+    } catch (error) {
+      throw error
+    }
   }
 }

@@ -7,22 +7,54 @@ import {
   Text,
   Modal,
   useColorScheme,
+  TextInputProps,
+  StyleProp,
+  ViewStyle,
 } from 'react-native'
 import { Colors, countryCodes } from '@/config/constants'
 import { Picker } from '@react-native-picker/picker'
-import { ItemValue } from '@react-native-picker/picker/typings/Picker'
 import { ArrowDownIcon } from '@/assets/icons'
+import {
+  Control,
+  FieldPath,
+  FieldPathValue,
+  Path,
+  useController,
+} from 'react-hook-form'
+import NunitoSansText from './NunitoSansText'
 
-type Props = {
-  placeholder?: string
-}
+type ControlledTextInputProps<T extends Record<string, any>> =
+  TextInputProps & {
+    containerStyle?: StyleProp<ViewStyle>
+    placeholder?: string
+    name: Path<T>
+    control: Control<T>
+    defaultValue?: FieldPathValue<T, FieldPath<T>>
+    error?: string
+  }
 
-const PhoneInput = ({ placeholder }: Props) => {
+const defaultSelected = countryCodes[191]
+
+const PhoneInput = <T extends Record<string, any>>({
+  style,
+  containerStyle,
+  name,
+  control,
+  defaultValue = { code: defaultSelected.value, number: '' } as any,
+  placeholder,
+  error,
+  ...rest
+}: ControlledTextInputProps<T>) => {
+  const {
+    field: { value, onChange, onBlur },
+  } = useController<T, FieldPath<T>>({
+    control,
+    defaultValue,
+    name,
+  })
+
   const colorScheme = useColorScheme()
 
-  const [selectedValue, setSelectedValue] = useState<ItemValue>(
-    countryCodes[0].value,
-  )
   const [showDropdown, setShowDropdown] = useState<boolean>(false)
 
   const pickerContainerStyle =
@@ -37,36 +69,58 @@ const PhoneInput = ({ placeholder }: Props) => {
     setShowDropdown(prev => !prev)
   }
 
+  function handleCountryCodeDropdownChange(itemValue: string) {
+    onChange({ ...value, code: itemValue.split(' ')[1] })
+  }
+
+  function handlePhoneNumberTextChange(text: string) {
+    onChange({ ...value, number: text })
+  }
+
   return (
-    <View style={[styles.flexRow, styles.relative]}>
-      <View>
-        <TouchableOpacity style={styles.flex} onPress={handleToggleDropdown}>
-          <View style={[styles.flex, styles.flexRow, styles.dropdown]}>
-            <Text>{selectedValue?.toString()}</Text>
-            <ArrowDownIcon style={styles.dropdownArrowDown} />
-          </View>
-        </TouchableOpacity>
-        <Modal visible={showDropdown} animationType="fade" transparent>
-          <View style={styles.pickerContainer}>
-            <TouchableOpacity onPress={handleToggleDropdown}>
-              <Text style={[styles.selectButton, pickerItemStyle]}>Select</Text>
-            </TouchableOpacity>
-            <Picker
-              style={[pickerContainerStyle]}
-              itemStyle={pickerItemStyle}
-              selectedValue={selectedValue}
-              onValueChange={itemValue => setSelectedValue(itemValue)}>
-              {countryCodes.map(
-                ({ label, value }: { label: string; value: string }) => (
-                  <Picker.Item key={value} label={label} value={value} />
-                ),
-              )}
-            </Picker>
-          </View>
-        </Modal>
+    <>
+      <View style={[styles.flexRow, styles.relative, containerStyle]}>
+        <View>
+          <TouchableOpacity style={styles.flex} onPress={handleToggleDropdown}>
+            <View style={[styles.flex, styles.flexRow, styles.dropdown]}>
+              <Text>{value.code?.toString()}</Text>
+              <ArrowDownIcon style={styles.dropdownArrowDown} />
+            </View>
+          </TouchableOpacity>
+          <Modal visible={showDropdown} animationType="fade" transparent>
+            <View style={[styles.pickerContainer, pickerContainerStyle]}>
+              <TouchableOpacity onPress={handleToggleDropdown}>
+                <Text style={[styles.selectButton, pickerItemStyle]}>
+                  Select
+                </Text>
+              </TouchableOpacity>
+              <Picker
+                style={[pickerContainerStyle]}
+                itemStyle={pickerItemStyle}
+                selectedValue={value.code}
+                onValueChange={handleCountryCodeDropdownChange}>
+                {countryCodes.map(
+                  ({ label, value }: { label: string; value: string }) => (
+                    <Picker.Item key={value} label={label} value={value} />
+                  ),
+                )}
+              </Picker>
+            </View>
+          </Modal>
+        </View>
+        <RNTextInput
+          style={styles.input}
+          placeholder={placeholder}
+          value={value.number}
+          onChangeText={handlePhoneNumberTextChange}
+          onBlur={onBlur}
+          {...rest}
+        />
       </View>
-      <RNTextInput style={styles.input} placeholder={placeholder} />
-    </View>
+      {error && (
+        <NunitoSansText style={styles.errorText}>{error}</NunitoSansText>
+      )}
+    </>
   )
 }
 
@@ -130,6 +184,13 @@ const styles = StyleSheet.create({
   },
   pickerItemDark: {
     color: Colors.textPrimary,
+  },
+  errorText: {
+    color: Colors.textError,
+    marginHorizontal: 12,
+    fontSize: 12,
+    fontStyle: 'italic',
+    fontWeight: 500,
   },
 })
 

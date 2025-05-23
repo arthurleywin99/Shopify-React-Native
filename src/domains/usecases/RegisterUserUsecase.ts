@@ -1,14 +1,20 @@
+import { AuthRepositoryImpl } from '@/data/repositories/AuthRepositoryImpl'
 import { User } from '../entities'
-import { IAuthRepository } from '../repositories/auth/IAuthRepository'
+import { Asset } from 'react-native-image-picker'
 
 export class RegisterUserUseCase {
-  constructor(private readonly userRepo: IAuthRepository) {}
+  constructor(private readonly userRepo: AuthRepositoryImpl) {}
 
   async execute(data: {
     email: string
     password: string
     phoneNumber: string
-  }): Promise<User> {
-    return this.userRepo.register(data)
+    avatar: Asset | null
+  }): Promise<User | null> {
+    try {
+      return this.userRepo.register(data)
+    } catch (error) {
+      throw error
+    }
   }
 }
