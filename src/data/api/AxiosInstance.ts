@@ -4,10 +4,10 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios'
+import { API_URL } from '@env'
 
 const instance: AxiosInstance = axios.create({
-  baseURL: process.env.API_URL,
-  timeout: 10000,
+  baseURL: API_URL,
 })
 
 function onRequest(
