@@ -17,11 +17,21 @@ import {
   TextInput,
 } from '@/presentation/components'
 import { BubbleIcon1, BubbleIcon2 } from '@/assets/icons'
-import { useUserSignupController } from '@/presentation/controllers'
+import {
+  useUserSignupController,
+  type SignupFormData,
+} from '@/presentation/controllers'
 
 const SignupScreen = () => {
-  const { photoUri, onPressUploadPhoto, onPressDone, onPressCancel } =
-    useUserSignupController()
+  const {
+    formControl,
+    formErrors,
+    photoUri,
+    isSubmitting,
+    onPressDone,
+    onPressUploadPhoto,
+    onPressCancel,
+  } = useUserSignupController()
 
   return (
     <TouchableNativeFeedback onPress={Keyboard.dismiss}>
@@ -55,18 +65,47 @@ const SignupScreen = () => {
               />
             </TouchableOpacity>
             <View style={styles.form}>
-              <TextInput placeholder="Email" />
-              <TextInput
+              <TextInput<SignupFormData>
+                name="email"
+                autoCapitalize="none"
+                control={formControl}
+                placeholder="Email"
+                error={formErrors.email?.message}
+              />
+              <TextInput<SignupFormData>
+                name="password"
+                control={formControl}
+                style={styles.formInput}
                 placeholder="Password"
                 textContentType="password"
                 secureTextEntry
+                error={formErrors.password?.message}
               />
-              <PhoneInput placeholder="Your number" />
+              <PhoneInput<SignupFormData>
+                name="phoneNumber"
+                control={formControl}
+                containerStyle={styles.formInput}
+                placeholder="Your number"
+                error={
+                  formErrors.phoneNumber?.number?.message ||
+                  formErrors.phoneNumber?.code?.message
+                }
+              />
             </View>
           </View>
           <View style={styles.centerWrapper}>
-            <Button type="primary" title="Done" onPress={onPressDone} />
-            <Button type="secondary" title="Cancel" onPress={onPressCancel} />
+            <Button
+              type="primary"
+              title="Done"
+              disabled={isSubmitting}
+              onPress={onPressDone}
+            />
+            <Button
+              type="secondary"
+              title="Cancel"
+              disabled={isSubmitting}
+              onPress={onPressCancel}
+            />
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -104,8 +143,10 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   form: {
-    gap: 16,
     marginBottom: 16,
+  },
+  formInput: {
+    marginTop: 16,
   },
   bubble1: {
     position: 'absolute',

@@ -9,6 +9,7 @@ type Props = {
   type?: 'primary' | 'secondary' | 'warning' | 'error'
   title: string
   suffixIcon?: boolean | React.ReactNode
+  disabled?: boolean
   onPress?: NoneToVoidFunction
   onLongPress?: NoneToVoidFunction
 }
@@ -17,6 +18,7 @@ const Button = ({
   type = 'primary',
   title,
   suffixIcon,
+  disabled = false,
   onPress,
   onLongPress,
 }: Props) => {
@@ -32,6 +34,7 @@ const Button = ({
           ? styles.warningButton
           : styles.errorButton,
       ]}
+      disabled={disabled}
       onPress={onPress}
       onLongPress={onLongPress}>
       <NunitoSansText

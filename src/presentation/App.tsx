@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { AppRoutes } from '@/core/enums'
 import { SignupScreen, StartScreen } from '@/presentation/screens'
+import Toast from 'react-native-toast-message'
 
 const Stack = createNativeStackNavigator()
 
@@ -21,9 +22,12 @@ function RootStack() {
 
 function App(): React.JSX.Element {
   return (
-    <NavigationContainer>
-      <RootStack />
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <RootStack />
+      </NavigationContainer>
+      <Toast />
+    </>
   )
 }
 

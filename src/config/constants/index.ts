@@ -5,6 +5,7 @@ export const Colors = {
   btnBgError: '#202020',
   textPrimary: '#F3F3F3',
   textSecondary: '#202020',
+  textError: '#ED4337',
   inputBackground: '#F8F8F8',
   inputTintColor: '#D2D2D2',
   black: '#000000',

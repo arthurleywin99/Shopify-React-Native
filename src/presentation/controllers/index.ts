@@ -1,1 +1,4 @@
-export { useUserSignupController } from './UserSignupController'
+export {
+  useUserSignupController,
+  type SignupFormData,
+} from './UserSignupController'

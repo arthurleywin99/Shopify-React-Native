@@ -1,1 +1,2 @@
-export { type IAuthRepository } from './auth/IAuthRepository'
+export { type IAuthRepository } from './IAuthRepository'
+export { type IUtilRepository } from './IUtilRepository'
