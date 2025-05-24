@@ -16,11 +16,15 @@ import {
   RalewayText,
   TextInput,
 } from '@/presentation/components'
-import { BubbleIcon1, BubbleIcon2 } from '@/assets/icons'
+import {
+  CreateAccountBubbleIcon1,
+  CreateAccountBubbleIcon2,
+} from '@/assets/icons'
 import {
   useUserSignupController,
   type SignupFormData,
-} from '@/presentation/controllers'
+} from './UserSignupController'
+import { Colors } from '@/config/constants'
 
 const SignupScreen = () => {
   const {
@@ -45,10 +49,10 @@ const SignupScreen = () => {
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled">
           <View style={styles.bubble2}>
-            <BubbleIcon2 />
+            <CreateAccountBubbleIcon2 />
           </View>
           <View style={styles.bubble1}>
-            <BubbleIcon1 />
+            <CreateAccountBubbleIcon1 />
           </View>
           <RalewayText style={styles.title}>Create{'\n'}Account</RalewayText>
           <View style={styles.formContainer}>
@@ -116,11 +120,12 @@ const SignupScreen = () => {
 const styles = StyleSheet.create({
   flex: {
     flex: 1,
+    backgroundColor: Colors.bgPrimary,
   },
   contentContainer: {
     flexGrow: 1,
     justifyContent: 'space-between',
-    padding: 20,
+    paddingHorizontal: 20,
   },
   uploadPhotoIcon: {
     width: 90,
@@ -137,6 +142,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     gap: 18,
+    marginBottom: 50,
   },
   formContainer: {
     gap: 32,

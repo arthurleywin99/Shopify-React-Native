@@ -17,7 +17,9 @@ const StartScreen = () => {
     navigation.navigate(AppRoutes.SIGNUP_SCREEN)
   }
 
-  function handlePressAlreadyHaveAccount() {}
+  function handlePressAlreadyHaveAccount() {
+    navigation.navigate(AppRoutes.SIGNIN_SCREEN)
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -60,6 +62,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     gap: 18,
+    marginBottom: 8,
   },
   shadow: {
     boxShadow: '0px 3px 8px rgba(0, 0, 0, 0.16)',

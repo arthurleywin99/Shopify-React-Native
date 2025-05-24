@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     tintColor: Colors.inputTintColor,
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingVertical: 20,
     borderRadius: 60,
     fontSize: 14,
     fontWeight: '500',

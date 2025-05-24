@@ -2,7 +2,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { AppRoutes } from '@/core/enums'
-import { SignupScreen, StartScreen } from '@/presentation/screens'
+import { SigninScreen, SignupScreen, StartScreen } from '@/presentation/screens'
 import Toast from 'react-native-toast-message'
 
 const Stack = createNativeStackNavigator()
@@ -16,6 +16,7 @@ function RootStack() {
       }}>
       <Stack.Screen name={AppRoutes.START_SCREEN} component={StartScreen} />
       <Stack.Screen name={AppRoutes.SIGNUP_SCREEN} component={SignupScreen} />
+      <Stack.Screen name={AppRoutes.SIGNIN_SCREEN} component={SigninScreen} />
     </Stack.Navigator>
   )
 }
