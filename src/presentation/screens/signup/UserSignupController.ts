@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { ALLOWED_CHARS, PASSWORD_REGEX } from '@/config/constants/regex'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Toast } from '../components'
+import { Toast } from '../../components'
 import { getError } from '@/config/exceptions'
 
 const signupForm = z.object({
