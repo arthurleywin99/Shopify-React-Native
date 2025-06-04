@@ -12,7 +12,9 @@ import { getError } from '@/config/exceptions'
 const signupForm = z.object({
   email: z.string().email('Invalid email address'),
   password: z
-    .string()
+    .string({
+      message: 'Password is required',
+    })
     .min(6, 'Password must be at least 6 characters')
     .max(18, 'Password must be no more than 18 characters')
     .refine(value => PASSWORD_REGEX.test(value), {
@@ -21,12 +23,14 @@ const signupForm = z.object({
     })
     .refine(val => ALLOWED_CHARS.test(val), {
       message:
-        'Password contains invalid special characters. Only _@- .| allowed.',
+        'Password contains invalid special characters. Only _@- .| allowed',
     }),
   phoneNumber: z.object({
     code: z.string().min(1, 'Country code is required'),
     number: z
-      .string()
+      .string({
+        message: 'Phone number is required',
+      })
       .min(6, 'Phone number is too short')
       .regex(/^\d+$/, 'Phone number must contain only digits'),
   }),

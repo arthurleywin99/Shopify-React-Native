@@ -45,7 +45,8 @@ const TextInput = <T extends Record<string, any>>({
         value={value}
         onChangeText={onChange}
         onBlur={onBlur}
-        style={[styles.container, style]}
+        style={[styles.container, style, error ? styles.error : undefined]}
+        placeholderTextColor={Colors.inputTintColor}
       />
       {error && (
         <NunitoSansText style={styles.errorText}>{error}</NunitoSansText>
@@ -60,9 +61,9 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
     tintColor: Colors.inputTintColor,
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingVertical: 18,
     borderRadius: 60,
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '500',
   },
   errorText: {
@@ -71,6 +72,10 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontStyle: 'italic',
     fontWeight: 500,
+  },
+  error: {
+    borderColor: Colors.textError,
+    borderWidth: 1,
   },
 })
 
