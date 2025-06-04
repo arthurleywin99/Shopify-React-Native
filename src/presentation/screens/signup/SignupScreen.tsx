@@ -71,6 +71,8 @@ const SignupScreen = () => {
                 control={formControl}
                 placeholder="Email"
                 error={formErrors.email?.message}
+                autoCorrect={false}
+                keyboardType="email-address"
               />
               <TextInput<SignupFormData>
                 name="password"
@@ -86,6 +88,7 @@ const SignupScreen = () => {
                 control={formControl}
                 containerStyle={styles.formInput}
                 placeholder="Your number"
+                keyboardType="number-pad"
                 error={
                   formErrors.phoneNumber?.number?.message ||
                   formErrors.phoneNumber?.code?.message

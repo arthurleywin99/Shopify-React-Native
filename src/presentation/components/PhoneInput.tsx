@@ -82,7 +82,13 @@ const PhoneInput = <T extends Record<string, any>>({
       <View style={[styles.flexRow, styles.relative, containerStyle]}>
         <View>
           <TouchableOpacity style={styles.flex} onPress={handleToggleDropdown}>
-            <View style={[styles.flex, styles.flexRow, styles.dropdown]}>
+            <View
+              style={[
+                styles.flex,
+                styles.flexRow,
+                styles.dropdown,
+                error ? [styles.error, styles.selectError] : undefined,
+              ]}>
               <Text>{value.code?.toString()}</Text>
               <ArrowDownIcon style={styles.dropdownArrowDown} />
             </View>
@@ -109,7 +115,10 @@ const PhoneInput = <T extends Record<string, any>>({
           </Modal>
         </View>
         <RNTextInput
-          style={styles.input}
+          style={[
+            styles.input,
+            error ? [styles.error, styles.inputError] : undefined,
+          ]}
           placeholder={placeholder}
           value={value.number}
           onChangeText={handlePhoneNumberTextChange}
@@ -156,7 +165,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderTopEndRadius: 60,
     borderBottomEndRadius: 60,
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '500',
   },
   pickerContainer: {
@@ -191,6 +200,17 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontStyle: 'italic',
     fontWeight: 500,
+  },
+  error: {
+    borderColor: Colors.textError,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+  },
+  inputError: {
+    borderRightWidth: 1,
+  },
+  selectError: {
+    borderLeftWidth: 1,
   },
 })
 
